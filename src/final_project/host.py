@@ -11,6 +11,34 @@ class Host:
             place = self.city.places[pid]
             self.profits += place.rate * place.occupancy
 
+    # Original rule (v0): hosts bid all their available profits
+    # def make_bids(self):
+    #     opportunities = set()
+    #     for pid in self.assets:
+    #         place = self.city.places[pid]
+    #         for neighbour_id in place.neighbours:
+    #             if neighbour_id not in self.assets:
+    #                 opportunities.add(neighbour_id)
+    #
+    #     bids = []
+    #     for pid in opportunities:
+    #         place = self.city.places[pid]
+    #         latest_step = max(place.price.keys())
+    #         ask_price = place.price[latest_step]
+    #
+    #         if self.profits >= ask_price:
+    #             bid = {
+    #                 'place_id': pid,
+    #                 'seller_id': place.host_id,
+    #                 'buyer_id': self.host_id,
+    #                 'spread': self.profits - ask_price,
+    #                 'bid_price': self.profits,
+    #             }
+    #             bids.append(bid)
+    #
+    #     return bids
+
+    # Modified rule (v1): hosts bid ask_price plus 10% of their spread instead of going all-in
     def make_bids(self):
         opportunities = set()
         for pid in self.assets:
@@ -26,12 +54,13 @@ class Host:
             ask_price = place.price[latest_step]
 
             if self.profits >= ask_price:
+                spread = self.profits - ask_price
                 bid = {
                     'place_id': pid,
                     'seller_id': place.host_id,
                     'buyer_id': self.host_id,
-                    'spread': self.profits - ask_price,
-                    'bid_price': self.profits,
+                    'spread': spread,
+                    'bid_price': ask_price + 0.1 * spread,
                 }
                 bids.append(bid)
 
