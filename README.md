@@ -20,3 +20,8 @@ conda env create -f environment.yml
 conda activate final-project
 pip install -e .
 python main.py
+
+## Part 2 Data Sources (Inside Airbnb)
+Download the following datasets (17 September 2026 release) and place them inside `data/` before running `notebooks/part2.ipynb`:
+- **Barcelona (`listings.csv.gz`):** https://data.insideairbnb.com/spain/catalonia/barcelona/2026-09-17/data/listings.csv.gz
+- **Madrid (`listings.csv.gz`):** https://data.insideairbnb.com/spain/comunidad-de-madrid/madrid/2026-09-17/data/listings.csv.gz
