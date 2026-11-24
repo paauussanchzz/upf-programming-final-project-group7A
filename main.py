@@ -85,4 +85,5 @@ def plot_graph2(active_hosts_history, filename="reports/graph2_v0.png"):
 if __name__ == "__main__":
     city, active_hosts_history = run_simulation(seed=42)
     plot_graph1(city, "reports/graph1.png")
-    plot_graph2(active_hosts_history, "reports/graph2_v0.png")
+    # plot_graph2(active_hosts_history, "reports/graph2_v0.png")
+    plot_graph2(active_hosts_history, "reports/graph2_v1.png")
