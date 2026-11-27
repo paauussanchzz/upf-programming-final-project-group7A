@@ -4,7 +4,7 @@ Final Project for **Programming (21960)** — Universitat Pompeu Fabra (UPF).
 
 ## Group Members
 - **Pau Sánchez Llopis** (`paauussanchzz`)
-- **Blanca Santos i Trias**
+- **Blanca Santos i Trias** (`blancasaa`)
 - **Jana Saguer Amills**
 - **Bru Raga Derid**
 
